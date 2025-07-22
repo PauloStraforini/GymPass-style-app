@@ -1,9 +1,9 @@
-import fastify from "fastify";
+import fastify from 'fastify'
 
-const app = fastify();
+const app = fastify()
 
-app.get("/", async (request, reply) => {
-  return { hello: "world" };
-});
+app.get('/', async () => {
+  return { hello: 'world' }
+})
 
-export default app;
+export default app

@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "tsx watch src/server.ts",
     "start": "node build/server.js",
-    "build": "tsup src --out-dir build"
+    "build": "tsup src --out-dir build",
+    "lint": "eslint ./**/*.ts* --fix"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,10 @@
     "typescript": "5.8.3"
   },
   "dependencies": {
-    "fastify": "5.4.0"
+    "@rocketseat/eslint-config": "2.2.2",
+    "dotenv": "17.2.0",
+    "eslint": "8.57.1",
+    "fastify": "5.4.0",
+    "zod": "4.0.5"
   }
 }
