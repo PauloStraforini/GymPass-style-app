@@ -7,7 +7,9 @@
     "start:dev": "tsx watch src/server.ts",
     "start": "node build/server.js",
     "build": "tsup src --out-dir build",
-    "lint": "eslint ./**/*.ts* --fix"
+    "lint": "eslint ./**/*.ts* --fix",
+    "test": "vitest run",
+    "test:watch": "vitest "
   },
   "repository": {
     "type": "git",
@@ -26,7 +28,9 @@
     "@types/node": "24.0.15",
     "tsup": "8.5.0",
     "tsx": "4.20.3",
-    "typescript": "5.8.3"
+    "typescript": "5.8.3",
+    "vite-tsconfig-paths": "5.1.4",
+    "vitest": "3.2.4"
   },
   "dependencies": {
     "@rocketseat/eslint-config": "2.2.2",
