@@ -1,4 +1,4 @@
-import { InMemoryUsersRepository } from '../../repositories/in-memory/in-momory-users-repository'
+import { InMemoryUsersRepository } from '../../repositories/in-memory/in-memory-users-repository'
 import { AuthenticateUseCase } from '../../use-cases/test/authenticate'
 import { InvalidCredentialsError } from '../errors/invalid-credential-error'
 import { hash } from 'bcryptjs'
