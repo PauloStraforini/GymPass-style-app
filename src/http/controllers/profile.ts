@@ -1,20 +1,17 @@
+import { makeGetUserProfileUseCase } from '../../use-cases/factories/make-get-user-profile-use-case'
 import { FastifyReply, FastifyRequest } from 'fastify'
+
 export async function profile(request: FastifyRequest, reply: FastifyReply) {
-  //   try {
-  //     const usersRepository = new PrismaUsersRepository()
-  //     const authenticateUseCase = new AuthenticateUseCase(usersRepository)
+  const getUserProfile = makeGetUserProfileUseCase()
 
-  //     await authenticateUseCase.execute({
-  //       email,
-  //       password,
-  //     })
-  //   } catch (err) {
-  //     if (err instanceof InvalidCredentialsError) {
-  //       return reply.status(409).send({ message: err.message })
-  //     }
+  const { user } = await getUserProfile.execute({
+    userId: request.user.sub,
+  })
 
-  //     throw err
-  //   }
-
-  return reply.status(201).send()
+  return reply.status(200).send({
+    user: {
+      ...user,
+      password_hash: undefined,
+    },
+  })
 }
