@@ -38,6 +38,7 @@
     "vitest": "3.2.4"
   },
   "dependencies": {
+    "@fastify/jwt": "9.1.0",
     "@rocketseat/eslint-config": "2.2.2",
     "@types/bcryptjs": "2.4.6",
     "bcryptjs": "3.0.2",
