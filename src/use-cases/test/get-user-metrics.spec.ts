@@ -5,7 +5,7 @@ import { GetUserMetricsUseCase } from './get-user-metrics'
 let checkInsRepository: InMemoryCheckInsRepository
 let sut: GetUserMetricsUseCase
 
-describe('get user metrics Use Case', () => {
+describe('Ger User Metrics Use Case', () => {
   beforeEach(async () => {
     checkInsRepository = new InMemoryCheckInsRepository()
     sut = new GetUserMetricsUseCase(checkInsRepository)
@@ -22,10 +22,10 @@ describe('get user metrics Use Case', () => {
       user_id: 'user-01',
     })
 
-    const { checkInscount } = await sut.execute({
+    const { checkInsCount } = await sut.execute({
       userId: 'user-01',
     })
 
-    expect(checkInscount).toEqual(2)
+    expect(checkInsCount).toEqual(2)
   })
 })

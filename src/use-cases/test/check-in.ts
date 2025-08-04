@@ -47,7 +47,7 @@ export class CheckInUseCase {
       throw new Error()
     }
 
-    const checkInOnSameDate = await this.checkInsRepository.findByIdOnDate(
+    const checkInOnSameDate = await this.checkInsRepository.findByUserIdOnDate(
       userId,
       new Date(),
     )
