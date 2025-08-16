@@ -8,39 +8,36 @@ datasource db {
 }
 
 model User {
-  id    String @id @default(uuid())
-  name  String
-  email String @unique
+  id            String    @id @default(uuid())
+  name          String
+  email         String    @unique
+  createdAt     DateTime  @default(now())
   password_hash String
-  createdAt DateTime @default(now())
+  checkIns      CheckIn[]
 
   @@map("users")
-  checkIns CheckIn[]
 }
 
 model CheckIn {
-  id String @id @default(uuid())
-  createdAt DateTime @default(now())
+  id          String    @id @default(uuid())
+  createdAt   DateTime  @default(now())
   validatedAt DateTime?
-
-  user_id String
-  gym_id String
-
-  user User @relation(fields: [user_id], references: [id])
-  gym Gym @relation(fields: [gym_id], references: [id])
+  gym_id      String
+  user_id     String
+  gym         Gym       @relation(fields: [gym_id], references: [id])
+  user        User      @relation(fields: [user_id], references: [id])
 
   @@map("check_ins")
 }
 
 model Gym {
-  id          String  @id @default(uuid())
+  id          String    @id @default(uuid())
   title       String
   description String?
   phoneNumber String?
   latitude    Decimal
   longitude   Decimal
-  
-  checkIns CheckIn[]
+  checkIns    CheckIn[]
 
- @@map("gyms")
+  @@map("gyms")
 }
