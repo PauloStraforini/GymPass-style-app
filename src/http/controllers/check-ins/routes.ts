@@ -5,11 +5,11 @@ import { validate } from './validate-check-in'
 import { history } from './history-check-in'
 import { metrics } from './metrics-check-in'
 
-export async function gymsRoutes(app: FastifyInstance) {
+export async function checkInRoutes(app: FastifyInstance) {
   app.addHook('onRequest', verifyJWT)
 
-  app.get('check-ins/history', history)
-  app.get('check-ins/metrics', metrics)
+  app.get('/check-ins/history', history)
+  app.get('/check-ins/metrics', metrics)
 
   app.post('/gyms/:gyms/check-is', create)
   app.patch('/check-ins/:checkInId/validate', validate)
